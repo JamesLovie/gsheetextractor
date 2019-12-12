@@ -33,17 +33,17 @@ class Gsheets_Extractor:
 
             sheet = workbook.get_worksheet(start_page_number)
             values = sheet.get_all_values()
-            npp_data = pd.DataFrame(values[1:],columns=values[0])
-            data_final = pd.concat([data_final, npp_data], ignore_index=True, sort=False)
+            data = pd.DataFrame(values[1:],columns=values[0])
+            data_final = pd.concat([data_final, data], ignore_index=True, sort=False)
 
             for x in range(start_page_number, total_sheets):
                 # Google API limits: https://developers.google.com/sheets/api/limits
                 time.sleep(2)
                 sheet = workbook.get_worksheet(x)
                 values = sheet.get_all_values()
-                npp_data = pd.DataFrame(values[1:],columns=values[0])
+                data = pd.DataFrame(values[1:],columns=values[0])
                 # Append the nth record data to the master dataframe.
-                data_final = pd.concat([data_final, npp_data], ignore_index=True, sort=False)
+                data_final = pd.concat([data_final, data], ignore_index=True, sort=False)
                 print(f'Completed sheet # {x}')
 
             self.total_sheets = total_sheets
