@@ -51,12 +51,12 @@ class Gsheets_Extractor:
 
 
 	def save_data(self, dataframe, filename):
-		dataframe.to_csv(filename, index=False)		
+		dataframe.to_csv(filename, index=False)
 		print(f'File has been sucessfully exported to {filename}')
 
 def main():
     # Instantiating the class (for constants)
-    extractor = Gsheets_Extractor('https://www.googleapis.com/auth/spreadsheets', '1jPZGpSv3m0lP-aLdbf_vib8uKHRP99Z7JQ-HPktrMm4')
+    extractor = Gsheets_Extractor('https://www.googleapis.com/auth/spreadsheets', 'xy')
     # Establish Google Sheets API connection.
     workbook = extractor.google_api_connector()
 
