@@ -17,7 +17,7 @@ class Gsheets_Extractor:
 	def google_api_connector(self):
             data_folder = os.path.join("API_Key_Google")
 
-            GOOGLE_KEY_FILE = os.path.join(data_folder, "api-extraction-67fc13175b69.json")
+            GOOGLE_KEY_FILE = os.path.join(data_folder, "api-key.json")
 
             credentials = ServiceAccountCredentials.from_json_keyfile_name(GOOGLE_KEY_FILE, self.scope)
             gc = gspread.authorize(credentials)
